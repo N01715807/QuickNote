@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TaskHub</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header id="welcome">
+        <h1>TaskHub</h1>
+        <p>Please enter the task!!!</p>
+    </header>
+    <section id="taskbox">
+        <form name="taskform" action="#" method="post">
+            <!--Task name-->
+            <label for="in_taskName">Task name:</label>
+            <input type="text" name="taskName" id="in_taskName">
+            <br/>
+
+            <!--Task info-->
+            <label for="in_note">Notes:</label>
+            <input type="text" name="Notes" id="in_note">
+            <br/>
+
+            <!--Priority-->
+            <label for="in_priority">Priority:</label>
+            <select name="priority" id="in_priority">
+                <option>Very urgent</option>
+                <option>Urgent</option>
+                <option>Normal</option>
+                <option>Optional</option>
+            </select>
+            <br/>
+
+            <!--color id-->
+            <label for="in_colorId">Color:</label>
+            <input type="hidden" id="selectedColor">
+            <div id="color-group">
+                <div class="color-option" data-color="#FF0000" style="background:#FF0000"></div>
+                <div class="color-option" data-color="#FFFF00" style="background:#FFFF00"></div>
+                <div class="color-option" data-color="#0000FF" style="background:#0000FF"></div>
+                <div class="color-option" data-color="#00FF00" style="background:#00FF00"></div>
+            </div>
+            <br/>
+
+            <!--Begin time-->
+            <label for="in_beginTime">Begin time:</label>
+            <input type="date" name="beginTime" id="in_beginTime">
+            <br/>
+
+            <!--End time-->
+            <label for="in_endTime">End time:</label>
+            <input type="date" name="endTime" id="in_endTime">
+            <br/>
+
+            <!--button-->
+            <button type="submit">Submit</button>
+
+        </form>
+    </section>
+
+    <div id="taskList"></div>
+
+</body>
+</html>
