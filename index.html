@@ -11,25 +11,29 @@
         <p>Please enter the task!!!</p>
     </header>
     <section id="taskbox">
-        <form name="taskform" action="#" method="post">
+        <form id="taskform" name="taskform" action="#" method="post">
             <!--Task name-->
             <label for="in_taskName">Task name:</label>
             <input type="text" name="taskName" id="in_taskName">
+            <span class="error_message" id="error_taskName"></span>
             <br/>
 
             <!--Task info-->
             <label for="in_note">Notes:</label>
             <input type="text" name="Notes" id="in_note">
+            <span class="error_message" id="error_Notes"></span>
             <br/>
 
             <!--Priority-->
             <label for="in_priority">Priority:</label>
             <select name="priority" id="in_priority">
+                <option value="">-- Please select --</option>
                 <option>Very urgent</option>
                 <option>Urgent</option>
                 <option>Normal</option>
                 <option>Optional</option>
             </select>
+            <span class="error_message" id="error_priority"></span>
             <br/>
 
             <!--color id-->
@@ -45,12 +49,12 @@
 
             <!--Begin time-->
             <label for="in_beginTime">Begin time:</label>
-            <input type="date" name="beginTime" id="in_beginTime">
+            <input type="time" name="beginTime" id="in_beginTime">
             <br/>
 
             <!--End time-->
             <label for="in_endTime">End time:</label>
-            <input type="date" name="endTime" id="in_endTime">
+            <input type="time" name="endTime" id="in_endTime">
             <br/>
 
             <!--button-->
@@ -59,7 +63,9 @@
         </form>
     </section>
 
-    <div id="taskList"></div>
+    <section id="taskList">
+        <div id="taskList"></div>
+    </section>
 
 </body>
 </html>
