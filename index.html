@@ -65,12 +65,35 @@
         </form>
     </section>
 
+    <taskSection id="listTitle">
+        <h3>TaskList:</h3>
+    </taskSection>
+
     <section id="taskSection">
-        <taskSection id="listTitle">
-            <p>TaskList:</p>
-        </taskSection>
-        <div id="taskList"></div>
+
+        <label for="filterPriority">Filter by priority</label>
+        <select name="filterPriority" id="filterPriority">
+            <option value="">-- Please select --</option>
+            <option value="Very urgent">Very urgent</option>
+            <option value="Urgent">Urgent</option>
+            <option value="Normal">Normal</option>
+            <option value="Optional">Optional</option>
+        </select>
+
+        <label for="filterColor">Filter by color</label>
+        <select name="filterColor" id="filterColor">
+            <option value="">-- Please select --</option>
+            <option value="#FF0000">Red</option>
+            <option value="#FFFF00">Yellow</option>
+            <option value="#0000FF">Blue</option>
+            <option value="#00FF00">Green</option>
+        </select>
+
+        <button type="button" id="applyFilter">Apply</button>
+
     </section>
+
+    <div id="taskList"></div>
 
 </body>
 </html>

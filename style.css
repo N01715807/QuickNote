@@ -1,39 +1,229 @@
+/* 全局字体和背景 */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f6fa;
+    color: #2f3640;
+    margin: 0;
+    padding: 0;
+}
+
+header#welcome {
+    background-color: #44dba9;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* 表单区域 */
+#taskbox {
+    background: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="time"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="time"]:focus,
+select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #44bd32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #4cd137;
+}
+
+/* 错误提示 */
+.error_message {
+    color: red;
+    font-size: 0.9rem;
+}
+
+/* 颜色选择 */
+#color-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
 .color-option {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  border-radius: 50%;
-  margin-right: 10px;
-  border: 2px solid #ccc;
-  cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s ease;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
 }
 
 .color-option.selected {
-  border: 3px solid black;
+    border: 3px solid #2f3640;
 }
 
+/* 任务列表标题 */
+taskSection#listTitle {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+/* ========================
+   筛选区域（Filter Section）
+   ======================== */
+#taskSection {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+#taskSection label,
+#taskSection select,
+#taskSection button {
+    margin: 0;
+}
+
+#taskSection select {
+    min-width: 120px;
+    padding: 6px 10px;
+}
+
+#taskSection button {
+    padding: 8px 16px;
+    background-color: #44bd32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#taskSection button:hover {
+    background-color: #4cd137;
+}
+
+/* ========================
+   任务列表标题（可选）
+   ======================== */
+#listTitle {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #2f3640;
+}
+
+/* ========================
+   任务列表容器
+   ======================== */
+#taskList {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 10px;
+}
+
+/* ========================
+   任务卡片
+   ======================== */
 .task-card {
-  display: flex;
-  gap: 10px;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+    background: white;
+    border-left: 6px solid #718093;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
 }
 
+.task-card span {
+    margin-right: 10px;
+}
+
+/* 颜色标识点 */
 .colorStyle {
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  border-radius: 50%;
-  margin-right: 10px;
-  border: 2px solid #333;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
 }
 
-span.button {
-  cursor: pointer;
-  padding: 4px 10px;
-  background-color: #007bff;
-  color: white;
-  border-radius: 4px;
-  margin-left: 10px;
-  user-select: none; 
+/* 计时按钮 */
+.button {
+    padding: 6px 12px;
+    background-color: #e1b12c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+    background-color: #fbc531;
+}
+
+/* 删除按钮样式 */
+.spanDeletButton {
+    font-size: 1.2rem;
+    color: #e84118;
+    cursor: pointer;
+}
+
+.spanDeletButton:hover {
+    color: #c23616;
+    transform: scale(1.2);
 }

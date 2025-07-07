@@ -65,6 +65,7 @@ window.onload = function()
         const spanSelectedColor =document.createElement("span")
         spanSelectedColor.classList.add("colorStyle")
         spanSelectedColor.style.background = selectedColor
+        spanSelectedColor.dataset.color = selectedColor
         taskCard.insertBefore(spanSelectedColor, taskCard.firstChild)
 
         const spanNametaskName = document.createElement("span")
@@ -76,6 +77,7 @@ window.onload = function()
         taskCard.appendChild(spanNameNote)
 
         const spanNamePriority = document.createElement("span")
+        spanNamePriority.classList.add("task-priority")
         spanNamePriority.innerText = input_priority.value
         taskCard.appendChild(spanNamePriority)
 
@@ -142,4 +144,37 @@ window.onload = function()
         taskList.appendChild(taskCard)
 
     })
+
+    const filterButton = document.getElementById("applyFilter");
+    filterButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        
+        const colorFilterValue = document.getElementById("filterColor").value;
+        const priorityFilterValue = document.getElementById("filterPriority").value;
+        const allTasks = Array.from(document.querySelectorAll(".task-card"));
+        const taskList = document.getElementById("taskList");
+        
+        const matched = [];
+        const unmatched = [];
+        
+        for (let task of allTasks) {
+            const priority = task.querySelector(".task-priority").innerText;
+            const color = task.querySelector(".colorStyle").dataset.color;
+            
+            const matchColor = colorFilterValue === "" || color === colorFilterValue;
+            const matchPriority = priorityFilterValue === "" || priority === priorityFilterValue;
+            
+            if (matchColor && matchPriority) {
+                matched.push(task);
+            } else {
+                unmatched.push(task);
+            }
+        }
+        
+        taskList.innerHTML = "";
+        
+        matched.forEach(task => taskList.appendChild(task));
+        unmatched.forEach(task => taskList.appendChild(task));
+    });
+
 }
