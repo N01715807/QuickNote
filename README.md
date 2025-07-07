@@ -1,7 +1,9 @@
 # 🗂️ Task Manager – Lightweight Frontend Task Organizer
 
 This is a browser-based task management tool built with plain HTML, CSS, and JavaScript. It supports task creation, color tagging, countdown timers, filtering, and basic interactive controls — all handled entirely on the frontend.
+
 ---
+
 ## ✨ Key Features
 - 🎨 Color Tagging
 Assign colors to tasks for better visual categorization.
@@ -23,7 +25,9 @@ Functionality to edit tasks will be added in future iterations.
 
 - 🔍 Filter and Sort
 Tasks can be filtered by color or priority. Matching tasks are brought to the top.
+
 ---
+
 ## 🧰 Tech Stack
 - HTML5
 
