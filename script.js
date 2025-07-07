@@ -1,5 +1,10 @@
 window.onload = function()
 {
+    const today = new Date();
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const Datefrom = today.toLocaleDateString("en-US", options);
+    document.getElementById("todayDate").innerText = Datefrom;
+
     const in_colorId = document.querySelectorAll(".color-option")
         for(let clickedOption of in_colorId){
             clickedOption.addEventListener("click",function(){for(let otherOption of in_colorId)
@@ -49,7 +54,65 @@ window.onload = function()
         }
 
         const in_beginTime = document.getElementById("in_beginTime").value
-        const in_endTime = document.getElementById("in_endTime").value       
+        const in_endTime = document.getElementById("in_endTime").value
+        
+        if (!valid) return;
+
+        const taskCard = document.createElement("div")
+        taskCard.classList.add("task-card")
+
+        const selectedColor = document.getElementById("selectedColor").value
+        const spanSelectedColor =document.createElement("span")
+        spanSelectedColor.classList.add("colorStyle")
+        spanSelectedColor.style.background = selectedColor
+        taskCard.insertBefore(spanSelectedColor, taskCard.firstChild)
+
+        const spanNametaskName = document.createElement("span")
+        spanNametaskName.innerText = input_taskName.value
+        taskCard.appendChild(spanNametaskName)
+
+        const spanNameNote = document.createElement("span")
+        spanNameNote.innerText = input_note.value
+        taskCard.appendChild(spanNameNote)
+
+        const spanNamePriority = document.createElement("span")
+        spanNamePriority.innerText = input_priority.value
+        taskCard.appendChild(spanNamePriority)
+
+        const spanNameBeginTime = document.createElement("span")
+        spanNameBeginTime.innerText = in_beginTime
+        taskCard.appendChild(spanNameBeginTime)
+
+        const spanNameEndTime = document.createElement("span")
+        spanNameEndTime.innerText = in_endTime
+        taskCard.appendChild(spanNameEndTime)
+
+        const fullBegin = `${today}T${in_beginTime}`
+        const fullEnd =`${today}T${in_endTime}`
+        const beginTime = new Date(fullBegin)
+        const endTime = new Date(fullEnd)
+
+        const spanFormattedTime = document.createElement("span")
+        taskCard.appendChild(spanFormattedTime)
+        let diff = (endTime - beginTime) / 1000
+
+        const timer = setInterval(()=> {
+            if (diff<=0)  
+                {
+                    spanFormattedTime.innerText = "Time's up!"
+                    clearInterval(timer)
+                    return;
+                }
+            let hours = Math.floor(diff / 3600).toString().padStart(2, "0")
+            let minutes = Math.floor((diff % 3600) / 60).toString().padStart(2, "0")
+            let seconds = Math.floor(diff % 60).toString().padStart(2, "0")
+
+            spanFormattedTime.innerText = `${hours}:${minutes}:${seconds}`
+            diff--;
+
+        },1000);
+
+        taskList.appendChild(taskCard)
 
     })
 }

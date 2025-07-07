@@ -7,8 +7,10 @@
 </head>
 <body>
     <header id="welcome">
-        <h1>TaskHub</h1>
-        <p>Please enter the task!!!</p>
+        <h1>Focus</h1>
+        <p>Please enter your task!!!</p>
+        <p>Date: <span id="todayDate"></span></p>
+        
     </header>
     <section id="taskbox">
         <form id="taskform" name="taskform" action="#" method="post">
@@ -63,7 +65,10 @@
         </form>
     </section>
 
-    <section id="taskList">
+    <section id="taskSection">
+        <taskSection id="listTitle">
+            <p>TaskList:</p>
+        </taskSection>
         <div id="taskList"></div>
     </section>
 
