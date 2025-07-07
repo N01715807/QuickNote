@@ -83,10 +83,13 @@ window.onload = function()
         spanNameBeginTime.innerText = in_beginTime
         taskCard.appendChild(spanNameBeginTime)
 
+        if(in_beginTime && in_endTime){
+        
         const spanNameEndTime = document.createElement("span")
         spanNameEndTime.innerText = in_endTime
         taskCard.appendChild(spanNameEndTime)
 
+        const today = new Date().toISOString().split("T")[0];
         const fullBegin = `${today}T${in_beginTime}`
         const fullEnd =`${today}T${in_endTime}`
         const beginTime = new Date(fullBegin)
@@ -96,21 +99,45 @@ window.onload = function()
         taskCard.appendChild(spanFormattedTime)
         let diff = (endTime - beginTime) / 1000
 
-        const timer = setInterval(()=> {
-            if (diff<=0)  
+        const spanButton = document.createElement("span")
+        spanButton.classList.add("button");
+        spanButton.innerText = "Start"
+        taskCard.appendChild(spanButton) 
+
+        let timer
+        let isrunning = false
+        spanButton.addEventListener("click",function(){
+            if(isrunning === false){
+                isrunning = true
+                timer = setInterval(()=>{
+                    if (diff<=0)  
                 {
                     spanFormattedTime.innerText = "Time's up!"
                     clearInterval(timer)
                     return;
                 }
-            let hours = Math.floor(diff / 3600).toString().padStart(2, "0")
-            let minutes = Math.floor((diff % 3600) / 60).toString().padStart(2, "0")
-            let seconds = Math.floor(diff % 60).toString().padStart(2, "0")
+                let hours = Math.floor(diff / 3600).toString().padStart(2, "0")
+                let minutes = Math.floor((diff % 3600) / 60).toString().padStart(2, "0")
+                let seconds = Math.floor(diff % 60).toString().padStart(2, "0")
+                    
+                spanFormattedTime.innerText = `${hours}:${minutes}:${seconds}`
+                diff--;
+                }, 1000)
+                spanButton.innerText = "Pause"
+            }else{
+                isrunning = false
+                clearInterval(timer);
+                spanButton.innerText = "Start"
+            }
+        })
+        }
 
-            spanFormattedTime.innerText = `${hours}:${minutes}:${seconds}`
-            diff--;
-
-        },1000);
+        const spanDeletButton = document.createElement("span")
+        spanDeletButton.innerText = "❌"
+        spanDeletButton.style.cursor = "pointer"
+        spanDeletButton.classList.add("spanDeletButton")
+        spanDeletButton.addEventListener("click",function(){taskCard.remove()})
+        taskCard.appendChild(spanDeletButton)
 
         taskList.appendChild(taskCard)
 
