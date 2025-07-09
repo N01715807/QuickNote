@@ -34,3 +34,10 @@ Tasks can be filtered by color or priority. Matching tasks are brought to the to
 - CSS3
 
 - Vanilla JavaScript (no frameworks)
+
+## 🚀 Getting Started
+
+```bash
+git https://github.com/N01715807/TaskHub.git
+cd TaskHub
+open index.html  # or drag into browser

@@ -135,7 +135,7 @@ window.onload = function()
         }
 
         const spanDeletButton = document.createElement("span")
-        spanDeletButton.innerText = "❌"
+        spanDeletButton.innerText = "Cancel"
         spanDeletButton.style.cursor = "pointer"
         spanDeletButton.classList.add("spanDeletButton")
         spanDeletButton.addEventListener("click",function(){taskCard.remove()})
