@@ -4,7 +4,7 @@ This is a browser-based task management tool built with plain HTML, CSS, and Jav
 
 ---
 
-## ✨ Key Features
+## Key Features
 - 🎨 Color Tagging
 Assign colors to tasks for better visual categorization.
 
@@ -28,16 +28,13 @@ Tasks can be filtered by color or priority. Matching tasks are brought to the to
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 - HTML5
-
 - CSS3
-
 - Vanilla JavaScript (no frameworks)
 
-## 🚀 Getting Started
+## Notes
+- This repository is intended solely for academic and self-learning purposes.  
+- All materials are individual practice works and not for commercial use.
 
-```bash
-git https://github.com/N01715807/TaskHub.git
-cd TaskHub
-open index.html  # or drag into browser
+
