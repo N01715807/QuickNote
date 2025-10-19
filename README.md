@@ -1,4 +1,4 @@
-# 🗂️ Task Manager – Lightweight Frontend Task Organizer
+# 🗂️ Task Manager – Small practice projects for learning purposes.
 
 This is a browser-based task management tool built with plain HTML, CSS, and JavaScript. It supports task creation, color tagging, countdown timers, filtering, and basic interactive controls.
 
